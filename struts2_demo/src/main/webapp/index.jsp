@@ -9,7 +9,8 @@
 </head>
 <body>
 	<h1>Welcome To Struts 2!</h1>
-	    
+	<a href="<s:url action="index" namespace="config-browser" />">Launch the configuration browser</a>
+	http://localhost:8080/struts2_demo/config-browser/index.action?debug=browser
 	<p>
 		<a href="<s:url action='hello'/>">Hello World</a>
 	</p>
