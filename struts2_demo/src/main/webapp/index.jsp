@@ -13,6 +13,8 @@
 	<p>
 		<a href="<s:url action='hello'/>">Hello World</a>
 	</p>
+	
+
 </body>
 
 </html>

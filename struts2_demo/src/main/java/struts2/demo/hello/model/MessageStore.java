@@ -18,4 +18,8 @@ public class MessageStore {
 
 		this.message = message;
 	}
+	
+	public String toString() {
+		return message + " (from toString)";
+	}
 }
