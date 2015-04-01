@@ -25,6 +25,9 @@ public class HelloAction extends ActionSupport {
 	public String execute() throws Exception {
 		helloCount++;
 		messageStore = new MessageStore();
+		if (userName != null) {
+			messageStore.setMessage( messageStore.getMessage() + " " + userName);
+		}
 		return SUCCESS;
 	}
 
@@ -42,6 +45,7 @@ public class HelloAction extends ActionSupport {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+		
 	}
 	
 }
