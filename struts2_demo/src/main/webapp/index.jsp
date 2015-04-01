@@ -13,7 +13,9 @@
 	<p>
 		<a href="<s:url action='hello'/>">Hello World</a>
 	</p>
-	
+	<p>
+		<a href="register.jsp">Please register</a> for our prize drawing.
+	</p>
 
 </body>
 
