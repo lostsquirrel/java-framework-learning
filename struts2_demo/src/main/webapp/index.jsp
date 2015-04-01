@@ -16,7 +16,22 @@
 	<p>
 		<a href="register.jsp">Please register</a> for our prize drawing.
 	</p>
+	<s:url action="registerInput" var="registerInputLink" />
+	<p>
+		<a href="${registerInputLink}">Please register</a> for our prize
+		drawing.
+	</p>
 
+	<h3>注册</h3>
+	<s:url action="registerInput" var="registerInputLinkCN">
+		<s:param name="request_locale">cn</s:param>
+	</s:url>
+	<p>
+		<a href="${registerInputLinkCN}">注册有奖</a>
+	</p>
+
+	<hr />
+	<s:text name="contact" />
 </body>
 
 </html>

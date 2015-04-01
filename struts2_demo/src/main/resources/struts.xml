@@ -6,17 +6,26 @@
 <struts>
 
 	<constant name="struts.devMode" value="true" />
-
+	<constant name="struts.custom.i18n.resources" value="global" />
+	
 	<package name="basicstruts2" extends="struts-default">
 		<action name="index">
 			<result>/index.jsp</result>
 		</action>
+		
 		<action name="hello" class="struts2.demo.hello.action.HelloAction"
 			method="execute">
 			<result name="success">/HelloWorld.jsp</result>
 		</action>
-		<action name="register" class="struts2.demo.hello.action.Register" method="execute">
+		
+		<action name="register" class="struts2.demo.hello.action.Register"
+			method="execute">
 			<result name="success">/thankyou.jsp</result>
+			<result name="input">/register.jsp</result>
+		</action>
+		
+		<action name="registerInput" class="struts2.demo.hello.action.Register"
+			method="input">
 			<result name="input">/register.jsp</result>
 		</action>
 	</package>
