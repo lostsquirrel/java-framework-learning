@@ -7,26 +7,59 @@
 
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources" value="global" />
-	
+
 	<package name="basicstruts2" extends="struts-default">
+		<interceptors>
+			<interceptor-stack name="appDefaultStack">
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="appDefaultStack" />
+		
+		<global-results>
+			<result name="securityerror">/securityerror.jsp</result>
+			<result name="error">/error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping
+				exception="struts2.demo.hello.exception.LogicException"
+				result="securityerror" />
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+
 		<action name="index">
 			<result>/index.jsp</result>
 		</action>
-		
+
 		<action name="hello" class="struts2.demo.hello.action.HelloAction"
 			method="execute">
 			<result name="success">/HelloWorld.jsp</result>
 		</action>
-		
+
 		<action name="register" class="struts2.demo.hello.action.Register"
 			method="execute">
 			<result name="success">/thankyou.jsp</result>
 			<result name="input">/register.jsp</result>
 		</action>
-		
+
 		<action name="registerInput" class="struts2.demo.hello.action.Register"
 			method="input">
 			<result name="input">/register.jsp</result>
+		</action>
+
+		<action name="actionspecificexception" class="struts2.demo.hello.action.Register"
+			method="throwSecurityException">
+			<result>/register.jsp</result>
+			<result name="login">/login.jsp</result>
+			<exception-mapping
+				exception="org.apache.struts.register.exceptions.SecurityBreachException"
+				result="login" />
 		</action>
 	</package>
 
